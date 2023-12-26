@@ -42,8 +42,8 @@ public class PlayerMove : MonoBehaviour
     private void UpdateAnimator()
     {
         float moveMagnitude = new Vector2(moveInput.x, moveInput.y).magnitude;
-        animator.SetBool("isWalking", moveMagnitude > 0);  // Assuming "isWalking" is the parameter for walking animation
-        animator.SetBool("isRunning", moveMagnitude > 0 && Keyboard.current.leftShiftKey.isPressed);  // Assuming "isRunning" is the parameter for running animation
+        animator.SetBool("isWalking", moveMagnitude > 0); 
+        animator.SetBool("isRunning", moveMagnitude > 0 && Keyboard.current.leftShiftKey.isPressed);
     }
 
     private void OnMove(InputValue value)
