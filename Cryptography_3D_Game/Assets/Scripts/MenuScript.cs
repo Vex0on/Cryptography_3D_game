@@ -7,6 +7,7 @@ public class MenuScript : MonoBehaviour
 {
     public GameObject mainMenuTexts;
     public GameObject optionsTexts;
+    public GameObject levelsTexts;
     public float fadeDuration = 1f;
 
     public void OnPlayClick()
@@ -20,6 +21,12 @@ public class MenuScript : MonoBehaviour
         StartCoroutine(FadeIn(optionsTexts, fadeDuration));
     }
 
+    public void OnLevelsClick()
+    {
+        StartCoroutine(FadeOut(mainMenuTexts, fadeDuration));
+        StartCoroutine(FadeIn(levelsTexts, fadeDuration));
+    }
+
     public void OnExitClick()
     {
         Application.Quit();
@@ -28,6 +35,12 @@ public class MenuScript : MonoBehaviour
     public void OnOptionsBackClick()
     {
         StartCoroutine(FadeOut(optionsTexts, fadeDuration));
+        StartCoroutine(FadeIn(mainMenuTexts, fadeDuration));
+    }
+
+    public void OnOptionsBackClick2()
+    {
+        StartCoroutine(FadeOut(levelsTexts, fadeDuration));
         StartCoroutine(FadeIn(mainMenuTexts, fadeDuration));
     }
 
