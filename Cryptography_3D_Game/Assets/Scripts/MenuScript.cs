@@ -10,9 +10,19 @@ public class MenuScript : MonoBehaviour
     public GameObject levelsTexts;
     public float fadeDuration = 1f;
 
-    public void OnPlayClick()
+    public void OnPlayTutorialClick()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Tutorial");
+    }
+
+    public void OnPlaySteganoClick()
+    {
+        SceneManager.LoadScene("Stegano");
+    }
+
+    public void OnPlayCryptoClick()
+    {
+        SceneManager.LoadScene("Crypto");
     }
 
     public void OnOptionsClick()

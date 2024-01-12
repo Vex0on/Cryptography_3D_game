@@ -11,6 +11,7 @@ public class PlayerMove : MonoBehaviour
 
     Vector2 moveInput;
     Rigidbody rb;
+    bool isModalOpen = false;
 
     void Start()
     {
@@ -19,8 +20,11 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        HandleMovement();
-        UpdateAnimator();
+        if (!isModalOpen)
+        {
+            HandleMovement();
+            UpdateAnimator();
+        }
     }
 
     private void HandleMovement()
@@ -44,6 +48,28 @@ public class PlayerMove : MonoBehaviour
         float moveMagnitude = new Vector2(moveInput.x, moveInput.y).magnitude;
         animator.SetBool("isWalking", moveMagnitude > 0); 
         animator.SetBool("isRunning", moveMagnitude > 0 && Keyboard.current.leftShiftKey.isPressed);
+    }
+
+    private void OnEquipment(InputValue value)
+    {
+        if (Keyboard.current.iKey.isPressed)
+        {
+            EquipmentModalManager.Instance.ToggleEquipmentModal();
+
+            SetPlayerMovementEnabled(!isModalOpen);
+        }
+    }
+
+    private void SetPlayerMovementEnabled(bool isEnabled)
+    {
+        if (!isEnabled)
+        {
+            moveInput = Vector2.zero;
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isRunning", false);
+        }
+
+        enabled = isEnabled;
     }
 
     private void OnMove(InputValue value)
