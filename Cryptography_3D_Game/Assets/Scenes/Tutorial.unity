@@ -126,7 +126,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh26918
+  m_Name: pb_Mesh60586
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -1572,7 +1572,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh26932
+  m_Name: pb_Mesh60604
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -2848,8 +2848,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Wci\u015Bnij \nW A S D "
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 15a89a035e351b64b8d3a0992671f4a7, type: 2}
+  m_sharedMaterial: {fileID: -7781402979951922438, guid: 15a89a035e351b64b8d3a0992671f4a7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3567,7 +3567,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh26722
+  m_Name: pb_Mesh60270
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -3938,8 +3938,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000011444092, y: -38.800003}
-  m_SizeDelta: {x: 288.7324, y: 50}
+  m_AnchoredPosition: {x: 1.9, y: -38.800003}
+  m_SizeDelta: {x: 355.5567, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &555844441
 MonoBehaviour:
@@ -3963,8 +3963,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "aby si\u0119 rozgl\u0105da\u0107"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 15a89a035e351b64b8d3a0992671f4a7, type: 2}
+  m_sharedMaterial: {fileID: -7781402979951922438, guid: 15a89a035e351b64b8d3a0992671f4a7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4044,7 +4044,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-69482
+  m_Name: pb_Mesh60256
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -4209,7 +4209,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh26678
+  m_Name: pb_Mesh60198
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -4654,7 +4654,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh26860
+  m_Name: pb_Mesh60456
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -5369,7 +5369,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh26890
+  m_Name: pb_Mesh60544
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -5716,8 +5716,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Porusz\nmyszk\u0105\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 15a89a035e351b64b8d3a0992671f4a7, type: 2}
+  m_sharedMaterial: {fileID: -7781402979951922438, guid: 15a89a035e351b64b8d3a0992671f4a7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6710,8 +6710,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 18.13208, y: 0}
+  m_SizeDelta: {x: 236.2642, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1142839902
 MonoBehaviour:
@@ -6733,16 +6733,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "  Kliknij e\npatrz\u0105c na\n d\u017Awigni\u0119"
+  m_text: " Kliknij e\npatrz\u0105c na\n d\u017Awigni\u0119"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 15a89a035e351b64b8d3a0992671f4a7, type: 2}
+  m_sharedMaterial: {fileID: -7781402979951922438, guid: 15a89a035e351b64b8d3a0992671f4a7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 4278190080
   m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -7474,7 +7474,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-65510
+  m_Name: pb_Mesh60236
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -7651,7 +7651,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1238165275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7733,7 +7733,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-65906
+  m_Name: pb_Mesh60508
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -7926,8 +7926,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3.915186, y: -32.25563}
-  m_SizeDelta: {x: 272.324, y: 50}
+  m_AnchoredPosition: {x: 18.3, y: -34.7}
+  m_SizeDelta: {x: 333.893, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1274412217
 MonoBehaviour:
@@ -7951,8 +7951,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "aby si\u0119 porusza\u0107"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 15a89a035e351b64b8d3a0992671f4a7, type: 2}
+  m_sharedMaterial: {fileID: -7781402979951922438, guid: 15a89a035e351b64b8d3a0992671f4a7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8519,7 +8519,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh26696
+  m_Name: pb_Mesh60216
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -8684,7 +8684,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-98782
+  m_Name: pb_Mesh60654
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -8849,7 +8849,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-57804
+  m_Name: pb_Mesh60668
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -9119,7 +9119,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh26846
+  m_Name: pb_Mesh60442
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -10365,7 +10365,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh26982
+  m_Name: pb_Mesh60690
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -10935,7 +10935,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-7348
+  m_Name: pb_Mesh60628
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -11206,7 +11206,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh26754
+  m_Name: pb_Mesh60312
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -13147,8 +13147,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Podejd\u017A\n do tej\nd\u017Awigni"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 15a89a035e351b64b8d3a0992671f4a7, type: 2}
+  m_sharedMaterial: {fileID: -7781402979951922438, guid: 15a89a035e351b64b8d3a0992671f4a7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
