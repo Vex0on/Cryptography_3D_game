@@ -33,9 +33,17 @@ public class CipherSolver : MonoBehaviour
 
     private void FillCipherDictionary()
     {
-        cipherDictionary.Add(0, new CipherData { solution = "Rozwi¹zanie 0" });
+        cipherDictionary.Add(0, new CipherData { solution = "Wiadomoœæ" });
         cipherDictionary.Add(1, new CipherData { solution = "Rozwi¹zanie 1" });
         cipherDictionary.Add(2, new CipherData { solution = "Rozwi¹zanie 2" });
+        cipherDictionary.Add(3, new CipherData { solution = "Rozwi¹zanie 0" });
+        cipherDictionary.Add(4, new CipherData { solution = "Rozwi¹zanie 1" });
+        cipherDictionary.Add(5, new CipherData { solution = "Rozwi¹zanie 2" });
+        cipherDictionary.Add(6, new CipherData { solution = "Rozwi¹zanie 0" });
+        cipherDictionary.Add(7, new CipherData { solution = "Rozwi¹zanie 1" });
+        cipherDictionary.Add(8, new CipherData { solution = "Rozwi¹zanie 2" });
+        cipherDictionary.Add(9, new CipherData { solution = "Rozwi¹zanie 0" });
+        cipherDictionary.Add(10, new CipherData { solution = "Rozwi¹zanie 0" });
     }
 
     public void CheckSolution()

@@ -34,6 +34,7 @@ public class EquipmentModalManager : MonoBehaviour
 
     public void ToggleEquipmentModal()
     {
+        Cursor.lockState = Cursor.lockState == CursorLockMode.None ? CursorLockMode.Locked : CursorLockMode.None;
         isModalVisible = !isModalVisible;
         equipmentModal.SetActive(isModalVisible);
     }

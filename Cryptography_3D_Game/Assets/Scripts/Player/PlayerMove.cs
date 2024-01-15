@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class PlayerMove : MonoBehaviour
     Vector2 moveInput;
     Rigidbody rb;
     bool isModalOpen = false;
+
+    private Coroutine inputChecker;
 
     void Start()
     {
@@ -46,7 +49,7 @@ public class PlayerMove : MonoBehaviour
     private void UpdateAnimator()
     {
         float moveMagnitude = new Vector2(moveInput.x, moveInput.y).magnitude;
-        animator.SetBool("isWalking", moveMagnitude > 0); 
+        animator.SetBool("isWalking", moveMagnitude > 0);
         animator.SetBool("isRunning", moveMagnitude > 0 && Keyboard.current.leftShiftKey.isPressed);
     }
 
@@ -54,19 +57,49 @@ public class PlayerMove : MonoBehaviour
     {
         if (Keyboard.current.iKey.isPressed)
         {
-            EquipmentModalManager.Instance.ToggleEquipmentModal();
-
             SetPlayerMovementEnabled(!isModalOpen);
+
+            if (isModalOpen)
+            {
+                if (inputChecker != null)
+                    StopCoroutine(inputChecker);
+                inputChecker = StartCoroutine(CustomInputCheck());
+            }
+
+            StartCoroutine(ToggleEquipmentModalAfterInputCheck());
         }
     }
+
+    private IEnumerator ToggleEquipmentModalAfterInputCheck()
+    {
+        yield return new WaitForEndOfFrame();
+
+        EquipmentModalManager.Instance.ToggleEquipmentModal();
+    }
+
+    private IEnumerator CustomInputCheck()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        while (EventSystem.current.currentSelectedGameObject == gameObject)
+        {
+            while (Keyboard.current.leftCtrlKey.isPressed && Keyboard.current.backspaceKey.isPressed)
+            {
+                Debug.Log("Wprowadzono 'i' w inpucie podczas otwartego modala");
+
+                yield return new WaitForSeconds(0.2f);
+            }
+
+            yield return null;
+        }
+    }
+
 
     private void SetPlayerMovementEnabled(bool isEnabled)
     {
         if (!isEnabled)
         {
             moveInput = Vector2.zero;
-            animator.SetBool("isWalking", false);
-            animator.SetBool("isRunning", false);
         }
 
         enabled = isEnabled;
