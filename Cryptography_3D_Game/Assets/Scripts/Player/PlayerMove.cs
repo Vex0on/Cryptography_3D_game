@@ -30,25 +30,15 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        if (!isModalOpen || isMessageInputFocused)
-        {
-            HandleMovement();
-            UpdateAnimator();
-        }
-    }
-
-    private void OnMessageInputSelect(string value)
-    {
-        isMessageInputFocused = true;
-    }
-
-    private void OnMessageInputDeselect(string value)
-    {
-        isMessageInputFocused = false;
+        HandleMovement();
+        UpdateAnimator();
     }
 
     private void HandleMovement()
     {
+        if (!CanMove())
+            return;
+
         Vector3 playerVelocity = new Vector3(moveInput.x, 0, moveInput.y).normalized;
         Vector3 moveDirection = transform.TransformDirection(playerVelocity);
 
@@ -71,9 +61,10 @@ public class PlayerMove : MonoBehaviour
             {
                 SetPlayerMovementEnabled(!isModalOpen);
 
-                if (isModalOpen && inputChecker != null)
+                if (isModalOpen)
                 {
-                    StopCoroutine(inputChecker);
+                    if (inputChecker != null)
+                        StopCoroutine(inputChecker);
                     inputChecker = StartCoroutine(CustomInputCheck());
                 }
 
@@ -115,5 +106,20 @@ public class PlayerMove : MonoBehaviour
     private void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
+    }
+
+    private bool CanMove()
+    {
+        return !isModalOpen && !isMessageInputFocused;
+    }
+
+    private void OnMessageInputSelect(string value)
+    {
+        isMessageInputFocused = true;
+    }
+
+    private void OnMessageInputDeselect(string value)
+    {
+        isMessageInputFocused = false;
     }
 }

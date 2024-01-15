@@ -1,7 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using static CipherSolver;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -10,8 +14,11 @@ public class TutorialManager : MonoBehaviour
     public GameObject lookAction;
     public GameObject comeAction;
     public GameObject useAction;
+    public GameObject tabletAction;
+    public GameObject solutionAction;
+    public GameObject congratsText;
     public GameObject playerPos;
-
+    public GameObject tablet;
 
     [Header("Objects")]
     public GameObject diamondIndicator;
@@ -19,9 +26,16 @@ public class TutorialManager : MonoBehaviour
     public GameObject leverObj;
     public Transform lever;
 
+    [Header("UI")]
+    public Button closeButton;
+
+    private bool closeButtonPressed = false;
+
     private void Start()
     {
         StartCoroutine(ShowMovementTutorial());
+
+        CipherSolver.OnSolutionChecked += OnSolutionChecked;
     }
 
     IEnumerator ShowMovementTutorial()
@@ -70,6 +84,56 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         gate.GetComponent<GateController>().OpenGate();
         useAction.SetActive(false);
+
+        StartCoroutine(ShowTabletTutorial());
+    }
+
+    IEnumerator ShowTabletTutorial()
+    {
+        Vector3 tabletTutorialPoint = new Vector3(0, 0, 7);
+        yield return new WaitUntil(() => HasPlayerReachedPoint(tabletTutorialPoint));
+        tabletAction.SetActive(true);
+        yield return new WaitUntil(() => HasPlayerOpenedTablet());
+        tabletAction.SetActive(false);
+
+        StartCoroutine(ShowSolutionTutorial());
+    }
+
+    IEnumerator ShowSolutionTutorial()
+    {
+        solutionAction.SetActive(true);
+        yield return new WaitUntil(() => closeButtonPressed);
+        solutionAction.SetActive(false);
+    }
+
+    public void OnCloseButtonClick()
+    {
+        closeButtonPressed = true;
+    }
+
+    private void OnSolutionChecked(bool isCorrect)
+    {
+        if (isCorrect)
+        {
+            tablet.SetActive(false);
+            congratsText.SetActive(true);
+            Invoke("LoadSteganoScene", 5f);
+        }
+    }
+
+    private void LoadSteganoScene()
+    {
+        SceneManager.LoadScene("Stegano");
+    }
+
+    private bool HasPlayerOpenedTablet()
+    {
+        return Keyboard.current.iKey.wasPressedThisFrame;
+    }
+
+    private bool HasPlayerReachedPoint(Vector3 point)
+    {
+        return Vector3.Distance(playerPos.transform.position, point) < 2f;
     }
 
     private bool HasPlayerMoved()

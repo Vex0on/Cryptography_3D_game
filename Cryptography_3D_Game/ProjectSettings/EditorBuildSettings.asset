@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Stegano.unity
+    guid: 86a626574fc9d044da8eda7fa8f42ec7
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: fc54a5304b3af4e4da1b002613e060ed, type: 2}
   m_UseUCBPForAssetBundles: 0

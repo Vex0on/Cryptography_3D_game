@@ -11,6 +11,8 @@ public class CipherSolver : MonoBehaviour
     {
         public string solution;
     }
+    public delegate void SolutionChecked(bool isCorrect);
+    public static event SolutionChecked OnSolutionChecked;
 
     private Dictionary<int, CipherData> cipherDictionary = new Dictionary<int, CipherData>();
 
@@ -34,16 +36,16 @@ public class CipherSolver : MonoBehaviour
     private void FillCipherDictionary()
     {
         cipherDictionary.Add(0, new CipherData { solution = "Wiadomoœæ" });
-        cipherDictionary.Add(1, new CipherData { solution = "Rozwi¹zanie 1" });
-        cipherDictionary.Add(2, new CipherData { solution = "Rozwi¹zanie 2" });
-        cipherDictionary.Add(3, new CipherData { solution = "Rozwi¹zanie 0" });
-        cipherDictionary.Add(4, new CipherData { solution = "Rozwi¹zanie 1" });
-        cipherDictionary.Add(5, new CipherData { solution = "Rozwi¹zanie 2" });
-        cipherDictionary.Add(6, new CipherData { solution = "Rozwi¹zanie 0" });
-        cipherDictionary.Add(7, new CipherData { solution = "Rozwi¹zanie 1" });
-        cipherDictionary.Add(8, new CipherData { solution = "Rozwi¹zanie 2" });
-        cipherDictionary.Add(9, new CipherData { solution = "Rozwi¹zanie 0" });
-        cipherDictionary.Add(10, new CipherData { solution = "Rozwi¹zanie 0" });
+        cipherDictionary.Add(1, new CipherData { solution = "Œrodkowy" });
+        cipherDictionary.Add(2, new CipherData { solution = "Szyfrowanie" });
+        cipherDictionary.Add(3, new CipherData { solution = "Przycisk" });
+        cipherDictionary.Add(4, new CipherData { solution = "Góra" });
+        cipherDictionary.Add(5, new CipherData { solution = "Pierwszy" });
+        cipherDictionary.Add(6, new CipherData { solution = "Dó³" });
+        cipherDictionary.Add(7, new CipherData { solution = "Genialne" });
+        cipherDictionary.Add(8, new CipherData { solution = "Ostatni" });
+        cipherDictionary.Add(9, new CipherData { solution = "DŸwignia" });
+        cipherDictionary.Add(10, new CipherData { solution = "Jest" });
     }
 
     public void CheckSolution()
@@ -62,11 +64,13 @@ public class CipherSolver : MonoBehaviour
                 if (cipher.solution.Equals(enteredSolution))
                 {
                     Debug.Log("Poprawne rozwi¹zanie!");
+                    OnSolutionChecked?.Invoke(true);
                     return;
                 }
                 else
                 {
                     Debug.Log("Nieprawid³owe rozwi¹zanie.");
+                    OnSolutionChecked?.Invoke(false);
                     return;
                 }
             }
