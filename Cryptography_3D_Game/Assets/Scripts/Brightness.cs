@@ -10,28 +10,17 @@ public class Brightness : MonoBehaviour
 
     AutoExposure exposure;
 
-    [System.Obsolete]
     void Start()
     {
         brightness.TryGetSettings(out exposure);
 
-        Brightness[] existingScripts = GameObject.FindObjectsOfType<Brightness>();
-        if (existingScripts.Length > 1)
+        if (!PlayerPrefs.HasKey("Brightness"))
         {
-            Destroy(gameObject);
+            PlayerPrefs.SetFloat("Brightness", 0.5f);
+            PlayerPrefs.Save();
         }
-        else
-        {
-            GameObject parentObject = GameObject.Find("BrightnessParent");
-            if (parentObject == null)
-            {
-                parentObject = new GameObject("BrightnessParent");
-                DontDestroyOnLoad(parentObject);
-                transform.SetParent(parentObject.transform);
-            }
 
-            LoadBrightness();
-        }
+        LoadBrightness();
     }
 
     public void AdjustBrightness(float value)
@@ -51,7 +40,7 @@ public class Brightness : MonoBehaviour
     private void SaveBrightness(float value)
     {
         PlayerPrefs.SetFloat("Brightness", value);
-    }
+        PlayerPrefs.Save();    }
 
     private void LoadBrightness()
     {
