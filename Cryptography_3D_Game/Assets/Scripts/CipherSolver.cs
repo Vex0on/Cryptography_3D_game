@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 using System.Collections;
+using System.Linq;
 
 public class CipherSolver : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class CipherSolver : MonoBehaviour
     public TMP_Text incorrectAnswer;
     public TMP_Text progressText;
     private int currentProgress = 0;
-    private int totalCiphers = 11;
+    private int totalCiphers = 21;
 
     private List<int> cipherAlreadySolved = new List<int>();
 
@@ -36,6 +37,7 @@ public class CipherSolver : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -43,6 +45,7 @@ public class CipherSolver : MonoBehaviour
         }
 
         FillCipherDictionary();
+        LoadProgress();
     }
 
     private void FillCipherDictionary()
@@ -58,6 +61,16 @@ public class CipherSolver : MonoBehaviour
         cipherDictionary.Add(8, new CipherData { solution = "Ostatni", hint1 = "Przyjrzyj siê", hint2 = "Polska jêzyk, trudna jêzyk", hint3 = "B³êdy w s³owach?" });
         cipherDictionary.Add(9, new CipherData { solution = "DŸwignia", hint1 = "WejdŸ w link", hint2 = "Spójrz na tytu³ posta", hint3 = "Decoder :)" });
         cipherDictionary.Add(10, new CipherData { solution = "Jest", hint1 = "Coœ tu nie gra", hint2 = "Przyjrzyj siê dok³adnie s³owom", hint3 = "Fonty?" });
+        cipherDictionary.Add(11, new CipherData { solution = "Morsowanie", hint1 = "Zazwyczaj dŸwiêkowy", hint2 = "Trzy sygna³y", hint3 = "Mors, taki zwierz" });
+        cipherDictionary.Add(12, new CipherData { solution = "Matematyka", hint1 = "Klucz powy¿ej", hint2 = "Kolejnoœæ", hint3 = "2/1 = B, 4/3 = N" });
+        cipherDictionary.Add(13, new CipherData { solution = "My pierwsza brygada", hint1 = "Nieco siê popl¹ta³o", hint2 = "Deseczki", hint3 = "Lustrzane odbicie" });
+        cipherDictionary.Add(14, new CipherData { solution = "Historyczny szyfr", hint1 = "Przesuniêcie", hint2 = "Litera do literki", hint3 = "Ave Cezar!" });
+        cipherDictionary.Add(15, new CipherData { solution = "Tablica", hint1 = "Dwuliterowe wspó³rzêdne", hint2 = "Kontrola wierszy i kolumn", hint3 = "Uk³ad szachownicy" });
+        cipherDictionary.Add(16, new CipherData { solution = "Spiralowe szyfrowanie", hint1 = "Orientacja", hint2 = "Od œrodka", hint3 = "Spirala" });
+        cipherDictionary.Add(17, new CipherData { solution = "Bardzo trudny szyfr", hint1 = "Klucz", hint2 = "Powtarzaj¹ce siê fragmenty", hint3 = "Przesuniêcie w alfabecie Vig.." });
+        cipherDictionary.Add(18, new CipherData { solution = "Jajecznica", hint1 = "D³ugoœci kawa³ków", hint2 = "Wzorce", hint3 = "Masz ochotê na bacon?" });
+        cipherDictionary.Add(19, new CipherData { solution = "Kie³basa", hint1 = "Pomieszane szyki", hint2 = "Pierwsza litera bez zmian", hint3 = "Ostatnia litera te¿" });
+        cipherDictionary.Add(20, new CipherData { solution = "Ukryte informacje niczym skarb piratów", hint1 = "Po jednym", hint2 = "U³ó¿ jedno na drugim", hint3 = "góra dó³, góra dó³" });
     }
 
     public void CheckSolution()
@@ -80,6 +93,7 @@ public class CipherSolver : MonoBehaviour
                         correctAnswer.gameObject.SetActive(true);
                         OnSolutionChecked?.Invoke(true);
                         cipherAlreadySolved.Add(enteredCipherNumber);
+                        currentProgress++;
                         UpdateProgress();
                         StartCoroutine(ShowFeedbackAndHide());
                     }
@@ -112,14 +126,70 @@ public class CipherSolver : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
 
-        correctAnswer.gameObject.SetActive(false);
-        incorrectAnswer.gameObject.SetActive(false);
+        if (correctAnswer != null)
+            correctAnswer.gameObject.SetActive(false);
+
+        if (incorrectAnswer != null)
+            incorrectAnswer.gameObject.SetActive(false);
+    }
+
+    public void SaveProgressOnClick()
+    {
+        SaveProgress();
+    }
+
+    public void LoadProgressOnClick()
+    {
+        LoadProgress();
+    }
+
+    public void ResetProgressOnClick()
+    {
+        ResetProgress();
     }
 
     private void UpdateProgress()
     {
-        currentProgress++;
-
         progressText.text = $"{currentProgress}/{totalCiphers}";
+    }
+
+    private void LoadProgress()
+    {
+        currentProgress = PlayerPrefs.GetInt("CipherProgress", 0);
+        UpdateProgress();
+        string solvedCiphers = PlayerPrefs.GetString("CipherSolved", "");
+        string[] cipherArray = solvedCiphers.Split(',');
+
+        foreach (string cipherStr in cipherArray)
+        {
+            if (int.TryParse(cipherStr, out int cipherNumber))
+            {
+                cipherAlreadySolved.Add(cipherNumber);
+            }
+        }
+
+        Debug.Log("Loaded Progress: " + currentProgress);
+    }
+
+    private void SaveProgress()
+    {
+        PlayerPrefs.SetInt("CipherProgress", currentProgress);
+        string solvedCiphers = string.Join(",", cipherAlreadySolved);
+        PlayerPrefs.SetString("CipherSolved", solvedCiphers);
+        PlayerPrefs.Save();
+        Debug.Log("Saved Progress: " + currentProgress);
+    }
+
+    private void ResetProgress()
+    {
+        PlayerPrefs.DeleteKey("CipherProgress");
+        PlayerPrefs.DeleteKey("CipherSolved");
+        PlayerPrefs.Save();
+
+        currentProgress = 0;
+        UpdateProgress();
+        cipherAlreadySolved.Clear();
+
+        Debug.Log("Progress reset.");
     }
 }
